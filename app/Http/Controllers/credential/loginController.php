@@ -12,16 +12,17 @@ class loginController extends Controller
 {
     public function index(){
         try{
-            if(!User::exists()){
-                User::create([
-                    'imie' => 'admin',
-                    'nazwisko'=>'admin',
-                    'email'=> 'admin@example.pl',
-                    'rola'=>2,
-                    'status'=>1,
-                    'password'=>Hash::make('admin')
-                ]);
+            if(User::exists()){
+                return view('Credential.login');
             }
+            User::create([
+                'imie' => 'admin',
+                'nazwisko'=>'admin',
+                'email'=> 'admin@example.pl',
+                'rola'=>2,
+                'status'=>1,
+                'password'=>Hash::make('admin')
+            ]);
             return view('Credential.login');
         }catch(\Exception $e){
             return view('Credential.login')->with(['error'=>'Brak połączenia z bazą danych']);
