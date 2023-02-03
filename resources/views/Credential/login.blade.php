@@ -2,7 +2,7 @@
 @section('title','login - CRM Application')
 @section('content')
     <div class="container-fluid" >
-        <form style="width:400px; margin-left:auto;margin-right:auto;margin-top:100px">
+        <form style="width:400px; margin-left:auto;margin-right:auto;margin-top:100px" method="post" action="{{route('login.submit')}}">
             <div class="mb-3">
                 <label for="exampleInputEmail1" class="form-label">Email</label>
                 <input type="email" class="form-control" id="exampleInputEmail1" name="email"placeholder="Podaj email">
