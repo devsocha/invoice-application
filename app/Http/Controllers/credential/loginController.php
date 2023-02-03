@@ -43,9 +43,11 @@ class loginController extends Controller
 
             if (Auth::attempt($credentials)) {
                 return redirect()->route('user.home');
+            }else{
+                return redirect()->route('loginpage');
             }
         }catch (\Exception $e){
-            return redirect()->route('loginpage');
+
         }
     }
 

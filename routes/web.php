@@ -9,5 +9,6 @@ Route::post('/login-submit',[\App\Http\Controllers\credential\loginController::c
 /* Rejestracja */
 
 /* User */
+Route::get('/home',[\App\Http\Controllers\user\homeController::class,'index'])->name('user.home');
 
 /* Admin */
