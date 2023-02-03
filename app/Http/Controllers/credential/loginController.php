@@ -30,18 +30,22 @@ class loginController extends Controller
 
     }
     public function login(Request $request){
-        $request->validate([
-            'email' => 'email|required',
-            'password'=>'required',
-        ]);
-        $credentials = [
-            'email' =>$request->email,
-            'password'=>$request->password,
-            'status'=> 0,
-        ];
+        try {
+            $request->validate([
+                'email' => 'email|required',
+                'password' => 'required',
+            ]);
+            $credentials = [
+                'email' => $request->email,
+                'password' => $request->password,
+                'status' => 1,
+            ];
 
-        if(Auth::attempt($credentials)){
-            return redirect()->route('home');
+            if (Auth::attempt($credentials)) {
+                return redirect()->route('user.home');
+            }
+        }catch (\Exception $e){
+            return redirect()->route('loginpage');
         }
     }
 
