@@ -1,4 +1,4 @@
-@extends('admin.layout.layout')
+@extends('user.layout.layout')
 @section('title','DevSocha - Strona główna')
 @section('content')
 dziala

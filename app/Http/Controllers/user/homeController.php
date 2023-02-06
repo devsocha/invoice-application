@@ -9,6 +9,9 @@ use Illuminate\Support\Facades\Auth;
 class homeController extends Controller
 {
     public function index(){
-        echo Auth::guard('web')->user()->imie;
+        //TODO 10 ostatnich faktur
+        // obrót ostatnie 30 dni
+        // zaległe faktury 10
+        return view('user.home');
     }
 }
