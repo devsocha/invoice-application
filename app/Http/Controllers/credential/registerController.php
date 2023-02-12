@@ -4,6 +4,7 @@ namespace App\Http\Controllers\credential;
 
 use App\Http\Controllers\Controller;
 use App\Mail\registrationMail;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
@@ -17,7 +18,14 @@ class registerController extends Controller
         Mail::to($request->email)->send(new registrationMail($subject,$body));
     }
     public function registerVerify($token,$email){
-
+        if(!User::where('token',$token)->where('email',$email)->exists()){
+            return view('Credential.confirmPassword')->with([
+                'token'=>$token,
+                'email'=>$email
+            ]);
+        }else{
+            return view('Credential.confirmPassword');
+        }
     }
     public function registerVerifySubmit(Request $request){
 
