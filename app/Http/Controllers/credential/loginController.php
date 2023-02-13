@@ -47,8 +47,11 @@ class loginController extends Controller
                 return redirect()->route('loginpage');
             }
         }catch (\Exception $e){
-
+            return redirect()->route('loginpage');
         }
     }
-
+    public function logout(){
+         Auth::logout();
+         return redirect()->route('loginpage');
+    }
 }

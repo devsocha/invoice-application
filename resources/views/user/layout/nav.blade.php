@@ -1,4 +1,3 @@
-//TODO dodanie nawigacji panel główny (home, faktury, firmy, opcje, raporty)
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
     <div class="container-fluid">
         <a class="navbar-brand" href="{{route('user.home')}}">DevSocha</a>
@@ -31,7 +30,7 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link " aria-current="page" href="#">wyloguj</a>
+                    <a class="nav-link " aria-current="page" href="{{route('logout')}}">wyloguj</a>
                 </li>
             </ul>
         </div>
