@@ -16,5 +16,5 @@ Route::get('/password-confirm/{token}/{email}',[\App\Http\Controllers\credential
 
 /* User */
 Route::get('/home',[\App\Http\Controllers\user\homeController::class,'index'])->name('user.home');
-
+Route::get('pdf',[\App\Http\Controllers\user\pdfController::class,'pdf'])->name('pdf.invoice');
 /* Admin */
