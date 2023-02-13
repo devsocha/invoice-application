@@ -27,7 +27,7 @@ class registrationMail extends Mailable
      */
     public function build()
     {
-        return $this->view('mails.registration')->with(['subject'=>$this->subject]);
+        return $this->view('mails.credentials.registration')->with(['subject'=>$this->subject]);
     }
 
     /**

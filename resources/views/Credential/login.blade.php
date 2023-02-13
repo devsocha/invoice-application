@@ -1,6 +1,8 @@
 @extends('Credential.layout')
 @section('title','login - Aplikacja do wystawiania faktur')
 @section('content')
+    @include('alerts.error')
+    @include('alerts.success')
     <div class="container-fluid" >
         <form style="width:400px; margin-left:auto;margin-right:auto;margin-top:100px" method="post" action="{{route('login.submit')}}" >
             @csrf
@@ -13,8 +15,7 @@
                 <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Podaj hasło">
             </div>
             <button type="submit" class="btn btn-primary">Zaloguj</button>
-        @include('alerts.error')
-        <a href="#" class="btn ">Zrestartuj hasło</a>
+        <a href="{{route('forget.password')}}" class="btn ">Zrestartuj hasło</a>
         </form>
     </div>
 

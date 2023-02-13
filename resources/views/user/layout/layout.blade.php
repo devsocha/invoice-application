@@ -8,6 +8,7 @@
     @include('implementations.js')
 </head>
 <body>
+@include('user.layout.nav')
 @yield('content')
 </body>
 </html>
