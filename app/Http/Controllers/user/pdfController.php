@@ -8,7 +8,10 @@ use Illuminate\Http\Request;
 class pdfController extends Controller
 {
     public function pdf(){
-        $pdf = Pdf::loadView('pdf.layout')/*->save(public_path().'/generate/pdf/testowy.pdf')*/;
-        return $pdf ->download('testowy.pdf');
+        Pdf::setOption(['dpi' => 96, 'defaultFont' => 'DejaVu Sans']);
+        $pdf = Pdf::loadView('pdf.invoice')/*->save(public_path().'/generate/pdf/testowy.pdf')*/;
+
+//        return $pdf ->download('testowy.pdf');
+        return view('pdf.invoice');
     }
 }

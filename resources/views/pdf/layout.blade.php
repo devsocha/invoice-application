@@ -6,9 +6,12 @@
     <title>@yield('title') - Invoice Application</title>
     @include('implementations.css')
     @include('implementations.js')
+    <style>
+        body {
+            font-family: DejaVu Sans, serif; }
+    </style>
 </head>
 <body>
-Testowy pdf
 @yield('content')
 </body>
 </html>
