@@ -7,5 +7,7 @@ use Illuminate\Http\Request;
 
 class optionsController extends Controller
 {
-    //
+    public function accountSettings(){
+        return view('user.accountOptions');
+    }
 }

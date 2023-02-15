@@ -10,23 +10,25 @@
                     <a class="nav-link active" aria-current="page" href="{{route('user.home')}}">Strona główna</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Faktury</a>
+                    <a class="nav-link active" aria-current="page" href="{{route('invoice')}}">Faktury</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Raporty</a>
+                    <a class="nav-link active" aria-current="page" href="{{route('reports')}}">Raporty</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Firmy</a>
+                    <a class="nav-link active" aria-current="page" href="{{route('company')}}">Firmy</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Ustawienia
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Opcje użytkownika</a></li>
-                        <li><a class="dropdown-item" href="#">Opcje kont użytkowników</a></li>
-                        <li><a class="dropdown-item" href="#">Opcje fakturowni</a></li>
-                        <li><a class="dropdown-item" href="#">Opcje layoutu faktur</a></li>
+                        <li><a class="dropdown-item" href="{{route('accountSettings')}}">Opcje konta</a></li>
+                        @if(\Illuminate\Support\Facades\Auth::user()->rola == 2)
+                            <li><a class="dropdown-item" href="#">Opcje kont użytkowników</a></li>
+                            <li><a class="dropdown-item" href="#">Opcje fakturowni</a></li>
+                            <li><a class="dropdown-item" href="#">Opcje layoutu faktur</a></li>
+                        @endif
                     </ul>
                 </li>
                 <li class="nav-item">

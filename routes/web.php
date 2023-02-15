@@ -15,6 +15,16 @@ Route::get('/password-confirm/{token}/{email}',[\App\Http\Controllers\credential
 /* Rejestracja */
 
 /* User */
-Route::get('/home',[\App\Http\Controllers\user\homeController::class,'index'])->name('user.home');
-Route::get('pdf',[\App\Http\Controllers\user\pdfController::class,'pdf'])->name('pdf.invoice');
+Route::get('/home',[\App\Http\Controllers\user\homeController::class,'index'
+])->name('user.home');
+Route::get('pdf',[\App\Http\Controllers\user\pdfController::class,'pdf'
+])->name('pdf.invoice');
+Route::get('account-settings',[\App\Http\Controllers\user\optionsController::class,'accountSettings'
+])->name('accountSettings');
+Route::get('invoice',[\App\Http\Controllers\user\invoiceController::class,'index'
+])->name('invoice');
+Route::get('company',[\App\Http\Controllers\user\companyController::class,'index'
+])->name('company');
+Route::get('reports',[\App\Http\Controllers\user\reportsController::class,'index'
+])->name('reports');
 /* Admin */
