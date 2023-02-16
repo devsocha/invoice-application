@@ -21,6 +21,8 @@ Route::get('pdf',[\App\Http\Controllers\user\pdfController::class,'pdf'
 ])->name('pdf.invoice');
 Route::get('account-settings',[\App\Http\Controllers\user\optionsController::class,'accountSettings'
 ])->name('accountSettings');
+Route::post('account-settings/submit',[\App\Http\Controllers\user\optionsController::class,'accountSettingsUpdate'
+])->name('accountSettings.submit');
 Route::get('invoice',[\App\Http\Controllers\user\invoiceController::class,'index'
 ])->name('invoice');
 Route::get('company',[\App\Http\Controllers\user\companyController::class,'index'
