@@ -4,7 +4,7 @@
     @include('alerts.error')
     @include('alerts.success')
     <div class="container-fluid" >
-        <form style="width:400px; margin-left:auto;margin-right:auto;margin-top:100px" method="post" action="{{route('login.submit')}}" >
+        <form style="width:400px; margin-left:auto;margin-right:auto;margin-top:100px" method="post" action="{{route('passwordConfirm.submit')}}" >
             @csrf
             <input type="hidden" name="token" value="{{$token}}">
             <input type="hidden" name="email" value="{{$email}}">

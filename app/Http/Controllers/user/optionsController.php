@@ -62,6 +62,6 @@ class optionsController extends Controller
                 ]);
             }
         }
-
     }
+
 }

@@ -13,7 +13,8 @@ Route::post('forget-password/submit',[\App\Http\Controllers\credential\forgetPas
 Route::get('/password-confirm/{token}/{email}',[\App\Http\Controllers\credential\registerController::class,'registerVerify'])->name('confirm.password');
 
 /* Rejestracja */
-
+Route::post('/password-confirm/submit',[\App\Http\Controllers\credential\registerController::class,'registerVerifySubmit'
+])->name('passwordConfirm.submit');
 /* User */
 Route::get('/home',[\App\Http\Controllers\user\homeController::class,'index'
 ])->name('user.home');
@@ -30,3 +31,13 @@ Route::get('company',[\App\Http\Controllers\user\companyController::class,'index
 Route::get('reports',[\App\Http\Controllers\user\reportsController::class,'index'
 ])->name('reports');
 /* Admin */
+Route::get('users-settings',[\App\Http\Controllers\admin\optionsController::class,'usersSettings'
+])->name('usersSettings');
+Route::post('users-settings/submit',[\App\Http\Controllers\credential\registerController::class,'registerSubmit'
+])->name('usersSettings.submit');
+Route::get('user-settings-edit/{id}',[\App\Http\Controllers\admin\optionsController::class,'userSettingsEdit'
+])->name('userSettingsEdit');
+Route::post('user-settings-submit',[\App\Http\Controllers\admin\optionsController::class,'userSettingsEditUpdate'
+])->name('userSettingsEditSubmit');
+Route::get('user-settings-delete/{id}',[\App\Http\Controllers\admin\optionsController::class,'userSettingsDelete'
+])->name('userSettingsDelete');

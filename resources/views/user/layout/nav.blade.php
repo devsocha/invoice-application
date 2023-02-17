@@ -25,9 +25,9 @@
                     <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="{{route('accountSettings')}}">Opcje konta</a></li>
                         @if(\Illuminate\Support\Facades\Auth::user()->rola == 2)
-                            <li><a class="dropdown-item" href="#">Opcje kont użytkowników</a></li>
-                            <li><a class="dropdown-item" href="#">Opcje fakturowni</a></li>
-                            <li><a class="dropdown-item" href="#">Opcje layoutu faktur</a></li>
+                            <li><a class="dropdown-item" href="{{route('usersSettings')}}">Opcje kont użytkowników</a></li>
+                            <li><a class="dropdown-item" href="#">Opcje firmy</a></li>
+                            <li><a class="dropdown-item" href="#">Opcje konta do przelewu</a></li>
                         @endif
                     </ul>
                 </li>

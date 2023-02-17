@@ -9,6 +9,8 @@
 </head>
 <body>
 @include('user.layout.nav')
+@include('alerts.error')
+@include('alerts.success')
 @yield('content')
 </body>
 </html>
