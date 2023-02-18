@@ -41,3 +41,5 @@ Route::post('user-settings-submit',[\App\Http\Controllers\admin\optionsControlle
 ])->name('userSettingsEditSubmit');
 Route::get('user-settings-delete/{id}',[\App\Http\Controllers\admin\optionsController::class,'userSettingsDelete'
 ])->name('userSettingsDelete');
+Route::get('company-settings',[\App\Http\Controllers\admin\optionsController::class,'companySettings'
+])->name('companySettings');

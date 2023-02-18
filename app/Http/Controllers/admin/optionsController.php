@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\ourCompanySettings;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -68,5 +69,18 @@ class optionsController extends Controller
                 'error' => 'Wystąpił błąd, spróbuj ponownie później',
             ]);
         }
+    }
+
+    public function companySettings(){
+        try{
+            $company = ourCompanySettings::first();
+            return view('admin.companySettings')->with([
+                'company'=>$company,
+            ]);
+        }catch (\Exception $e) {
+            return redirect()->back()->with([
+                'error' => 'Wystąpił błąd, spróbuj ponownie później',
+            ]);
+            }
     }
 }
