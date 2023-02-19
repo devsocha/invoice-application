@@ -27,7 +27,7 @@
                         @if(\Illuminate\Support\Facades\Auth::user()->rola == 2)
                             <li><a class="dropdown-item" href="{{route('usersSettings')}}">Opcje kont użytkowników</a></li>
                             <li><a class="dropdown-item" href="{{route('companySettings')}}">Opcje firmy</a></li>
-                            <li><a class="dropdown-item" href="#">Opcje konta do przelewu</a></li>
+                            <li><a class="dropdown-item" href="{{route('numberAccountSettings')}}">Opcje konta do przelewu</a></li>
                         @endif
                     </ul>
                 </li>

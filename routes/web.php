@@ -43,3 +43,15 @@ Route::get('user-settings-delete/{id}',[\App\Http\Controllers\admin\optionsContr
 ])->name('userSettingsDelete');
 Route::get('company-settings',[\App\Http\Controllers\admin\optionsController::class,'companySettings'
 ])->name('companySettings');
+Route::post('company-settings/submit',[\App\Http\Controllers\admin\optionsController::class,'companySettingsEdit'
+])->name('companySettingsSubmit');
+Route::get('number-account-settings',[\App\Http\Controllers\admin\optionsController::class,'numberAccountSettings'
+])->name('numberAccountSettings');
+Route::post('number-account-settings-submit',[\App\Http\Controllers\admin\optionsController::class,'numberAccountSettingsUpdate'
+])->name('numberAccountSettingsSubmit');
+Route::get('number-account-settings-delete/{id}',[\App\Http\Controllers\admin\optionsController::class,'numberAccountSettingsDelete'
+])->name('numberAccountSettingsDelete');
+Route::get('number-account-settings-edit/{id}',[\App\Http\Controllers\admin\optionsController::class,'numberAccountSettingsEdit'
+])->name('numberAccountSettingsEdit');
+Route::post('number-account-settings-edit-submit',[\App\Http\Controllers\admin\optionsController::class,'numberAccountSettingsEditSubmit'
+])->name('numberAccountSettingsEditSubmit');

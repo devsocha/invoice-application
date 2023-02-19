@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\ourAccountNumbers;
 use App\Models\ourCompanySettings;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -82,5 +83,116 @@ class optionsController extends Controller
                 'error' => 'Wystąpił błąd, spróbuj ponownie później',
             ]);
             }
+    }
+    public function companySettingsEdit(Request $request){
+        try{
+            $request->validate([
+                'company' =>'required',
+                'adress'=>'required',
+                'zipCode'=>'required',
+                'city'=>'required',
+                'nip'=>'required',
+            ]);
+            if(ourCompanySettings::exists()){
+                ourCompanySettings::where('id',1)->update([
+                    'firma'=>$request->company,
+                    'adres'=>$request->adress,
+                    'kodpocztowy'=>$request->zipCode,
+                    'miasto'=>$request->city,
+                    'nip'=>$request->nip,
+                ]);
+            }else{
+                ourCompanySettings::create([
+                    'firma'=>$request->company,
+                    'adres'=>$request->adress,
+                    'kodpocztowy'=>$request->zipCode,
+                    'miasto'=>$request->city,
+                    'nip'=>$request->nip,
+                ]);
+            }
+
+            return redirect()->back()->with([
+                'success' => 'Poprawnie zmieniono dane firmowe',
+            ]);
+        }catch (\Exception $e) {
+            return redirect()->back()->with([
+                'error' => 'Wystąpił błąd, spróbuj ponownie później',
+            ]);
+        }
+    }
+    public function numberAccountSettings(){
+        $accounts = ourAccountNumbers::all();
+        return view('admin.companyAccountsOptions')->with([
+            'accounts'=>$accounts,
+        ]);
+    }
+    public function numberAccountSettingsUpdate(Request $request){
+        try{
+            $request->validate([
+                'name'=>'required',
+                'number'=>'required'
+            ]);
+            if(ourAccountNumbers::where('nazwa',$request->name)->exists()){
+                return redirect()->back()->with([
+                    'error' => 'Konto o takiej nazwie już istnieje.',
+                ]);
+            }else{
+                ourAccountNumbers::create([
+                    'nazwa'=>$request->name,
+                    'numerkonta'=>$request->number,
+                ]);
+                return redirect()->back()->with([
+                    'success' => 'Konto zostało poprawnie dodane.',
+                ]);
+            }
+        }catch (\Exception $e) {
+            return redirect()->back()->with([
+                'error' => 'Wystąpił błąd, spróbuj ponownie później',
+            ]);
+        }
+    }
+    public function numberAccountSettingsDelete($id){
+        try{
+            ourAccountNumbers::where('id',$id)->delete();
+            return redirect()->back()->with([
+                'success' => 'Poprawnie usunięto numer konta',
+            ]);
+        }catch (\Exception $e) {
+            return redirect()->back()->with([
+                'error' => 'Wystąpił błąd, spróbuj ponownie później',
+            ]);
+        }
+    }
+    public function numberAccountSettingsEdit($id){
+        try{
+            $account = ourAccountNumbers::where('id',$id)->first();
+            return view('admin.companyAccountEdit')->with([
+                'account'=>$account,
+            ]);
+        }catch (\Exception $e) {
+            return redirect()->back()->with([
+                'error' => 'Wystąpił błąd, spróbuj ponownie później',
+            ]);
+        }
+    }
+    public function numberAccountSettingsEditSubmit(Request $request){
+        try{
+            $request->validate([
+                'name'=>'required',
+                'number'=>'required',
+                'id'=>'required',
+            ]);
+            ourAccountNumbers::where('id',$request->id)->update([
+                'nazwa'=>$request->name,
+                'numerkonta'=>$request->number,
+            ]);
+            return redirect()->back()->with([
+                'success'=>'Poprawnie zapisano zmiany',
+            ]);
+        }catch (\Exception $e) {
+            return redirect()->back()->with([
+                'error' => 'Wystąpił błąd, spróbuj ponownie później',
+            ]);
+        }
     }
 }

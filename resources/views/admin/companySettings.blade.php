@@ -1,7 +1,7 @@
-<@extends('user.layout.layout')
+@extends('user.layout.layout')
 @section('title','Ustawienia konta')
 @section('content')
-    <form method="post" action="#">
+    <form method="post" action="{{route('companySettingsSubmit')}}">
         @csrf
         <input type="hidden" name="id"value="">
         <div class="containter-fluid" style="width:40%;margin-top:5%;margin-left:auto;margin-right: auto;">
@@ -22,11 +22,11 @@
         </div>
         <div class="containter-fluid" style="width:40%;margin-top:1%;margin-left:auto;margin-right: auto;">
             <label for="nip" class="form-label">NIP</label>
-            <input type="text" name="nip" class="form-control" id="nip" @if($company)value="{{$company->nip}}" @endif  placeholder="Wpisz NIP">
+            <input type="number" name="nip" class="form-control" id="nip" @if($company)value="{{$company->nip}}" @endif  placeholder="Wpisz NIP">
         </div>
         <div class="containter-fluid" style="width:40%;margin-top:1%;margin-left:auto;margin-right: auto;">
             <input type="submit" value="Edytuj" class="btn btn-success" >
-            <a href="#" class="btn btn-danger">Resetuj wprowadzone zmiany</a>
+            <a href="{{route('companySettings')}}" class="btn btn-danger">Resetuj wprowadzone zmiany</a>
         </div>
     </form>
 
