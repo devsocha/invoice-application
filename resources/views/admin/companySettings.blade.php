@@ -3,7 +3,7 @@
 @section('content')
     <form method="post" action="{{route('companySettingsSubmit')}}">
         @csrf
-        <input type="hidden" name="id"value="">
+        <input type="hidden" name="id" value="">
         <div class="containter-fluid" style="width:40%;margin-top:5%;margin-left:auto;margin-right: auto;">
             <label for="nameCompany" class="form-label">Nazwa firmy</label>
             <input type="text" name="company" class="form-control" id="nameCompany" @if($company)value="{{$company->firma}}" @endif placeholder="Wpisz nazwę firmy">

@@ -36,6 +36,10 @@ Route::get('company-add',[\App\Http\Controllers\user\companyController::class,'c
 ])->name('companyAdd');
 Route::post('company-add-submit',[\App\Http\Controllers\user\companyController::class,'companyAddSubmit'
 ])->name('companyAddSubmit');
+Route::get('company-edit/{id}',[\App\Http\Controllers\user\companyController::class,'companyEdit'
+])->name('companyEdit');
+Route::post('company-edit-submit',[\App\Http\Controllers\user\companyController::class,'companyEditSubmit'
+])->name('companyEditSubmit');
 /* Admin */
 Route::get('users-settings',[\App\Http\Controllers\admin\optionsController::class,'usersSettings'
 ])->name('usersSettings');

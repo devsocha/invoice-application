@@ -21,7 +21,7 @@
                     <td>{{$company->firma}}</td>
                     <td>{{$company->nip}}</td>
                     <td>
-                        <a href="{{route('numberAccountSettingsEdit',['id'=>$company->id])}}" class="btn btn-success">Edytuj</a>
+                        <a href="{{route('companyEdit',['id'=>$company->id])}}" class="btn btn-success">Edytuj</a>
                         <a href="{{route('companyDelete',['id'=>$company->id])}}" class="btn btn-danger">Usuń</a>
                     </td>
                 </tr>
