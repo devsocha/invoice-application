@@ -14,6 +14,45 @@ class companyController extends Controller
             'companies'=>$allCompanies,
         ]);
     }
-
+    public function companyDelete($id){
+        try{
+            company::where('id',$id)->delete();
+            return redirect()->back()->with([
+                'success'=>'Poprawnie usunięto firmę,'
+            ]);
+        }catch (\Exception $e) {
+            return redirect()->back()->with([
+                'error' => 'Wystąpił błąd, spróbuj ponownie później',
+            ]);
+        }
+    }
+    public function companyAdd(){
+        return view('user.companyAdd');
+    }
+    public function companyAddSubmit(Request $request){
+        try{
+            $request->validate([
+                'name'=>'required',
+                'adress'=>'required',
+                'zipCode'=>'required',
+                'city'=>'required',
+                'nip'=>'required'
+            ]);
+            company::create([
+                'firma'=>$request->name,
+                'adres'=>$request->adress,
+                'kodpocztowy'=>$request->zipCode,
+                'miasto'=>$request->city,
+                'nip'=>$request->nip,
+            ]);
+            return redirect()->back()->with([
+                'success'=> 'Poprawnie dodano firmę',
+            ]);
+        }catch (\Exception $e) {
+            return redirect()->back()->with([
+                'error' => 'Wystąpił błąd, spróbuj ponownie później'.$e,
+            ]);
+        }
+    }
     //TODO pobieranie danych do wyglądu oraz szablon wraz z całym backendem do tworzenia edycji i usuwania firm
 }

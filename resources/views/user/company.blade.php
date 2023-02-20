@@ -2,7 +2,7 @@
 @section('title','Firmy')
 @section('content')
     <div class="row g-3 m-1">
-        <a href="#" class="col-auto btn btn-primary m-3">Dodaj nową firmę</a>
+        <a href="{{route('companyAdd')}}" class="col-auto btn btn-primary m-3">Dodaj nową firmę</a>
     </div>
 
         <table class="table text-center">
@@ -15,16 +15,16 @@
             </tr>
             </thead>
             <tbody>
-{{--            @foreach($accounts as $account)--}}
-{{--                <tr>--}}
-{{--                    <th scope="row">{{$loop->iteration}}</th>--}}
-{{--                    <td>{{$account->nazwa}}</td>--}}
-{{--                    <td>{{$account->numerkonta}}</td>--}}
-{{--                    <td>--}}
-{{--                        <a href="{{route('numberAccountSettingsEdit',['id'=>$account->id])}}" class="btn btn-success">Edytuj</a>--}}
-{{--                        <a href="{{route('numberAccountSettingsDelete',['id'=>$account->id])}}" class="btn btn-danger">Usuń</a>--}}
-{{--                    </td>--}}
-{{--                </tr>--}}
-{{--            @endforeach--}}
+            @foreach($companies as $company)
+                <tr>
+                    <th scope="row">{{$loop->iteration}}</th>
+                    <td>{{$company->firma}}</td>
+                    <td>{{$company->nip}}</td>
+                    <td>
+                        <a href="{{route('numberAccountSettingsEdit',['id'=>$company->id])}}" class="btn btn-success">Edytuj</a>
+                        <a href="{{route('companyDelete',['id'=>$company->id])}}" class="btn btn-danger">Usuń</a>
+                    </td>
+                </tr>
+            @endforeach
         </table>
 @endsection

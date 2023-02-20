@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('adres');
             $table->string('kodpocztowy');
             $table->string('miasto');
-            $table->bigInteger('nip');
+            $table->string('nip');
             $table->timestamps();
         });
     }

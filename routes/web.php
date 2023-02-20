@@ -30,6 +30,12 @@ Route::get('company',[\App\Http\Controllers\user\companyController::class,'index
 ])->name('company');
 Route::get('reports',[\App\Http\Controllers\user\reportsController::class,'index'
 ])->name('reports');
+Route::get('company-delete/{id}',[\App\Http\Controllers\user\companyController::class,'companyDelete'
+])->name('companyDelete');
+Route::get('company-add',[\App\Http\Controllers\user\companyController::class,'companyAdd'
+])->name('companyAdd');
+Route::post('company-add-submit',[\App\Http\Controllers\user\companyController::class,'companyAddSubmit'
+])->name('companyAddSubmit');
 /* Admin */
 Route::get('users-settings',[\App\Http\Controllers\admin\optionsController::class,'usersSettings'
 ])->name('usersSettings');
