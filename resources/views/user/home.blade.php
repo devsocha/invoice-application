@@ -2,4 +2,5 @@
 @section('title','DevSocha - Strona główna')
 @section('content')
 
+
 @endsection

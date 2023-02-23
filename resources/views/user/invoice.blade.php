@@ -2,7 +2,7 @@
 @section('title','Faktury')
 @section('content')
     <div class="row g-3 m-1">
-        <a href="#" class="col-auto btn btn-primary m-3">Wystaw fakturę</a>
+        <a href="{{route('newInvoice')}}" class="col-auto btn btn-primary m-3">Wystaw fakturę</a>
     </div>
 
     <table class="table text-center">

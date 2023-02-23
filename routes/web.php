@@ -40,6 +40,8 @@ Route::get('company-edit/{id}',[\App\Http\Controllers\user\companyController::cl
 ])->name('companyEdit');
 Route::post('company-edit-submit',[\App\Http\Controllers\user\companyController::class,'companyEditSubmit'
 ])->name('companyEditSubmit');
+Route::get('new-invoice',[\App\Http\Controllers\user\invoiceController::class,'newInvoice'
+])->name('newInvoice');
 /* Admin */
 Route::get('users-settings',[\App\Http\Controllers\admin\optionsController::class,'usersSettings'
 ])->name('usersSettings');
