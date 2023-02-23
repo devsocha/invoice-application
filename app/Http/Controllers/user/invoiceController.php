@@ -14,4 +14,13 @@ class invoiceController extends Controller
             'invoices'=>$invoices,
         ]);
     }
+    public function newInvoice(){
+        try{
+            return view('user.newInvoice');
+        }catch(\Exception $e){
+            return redirect()->back()->with([
+                'error'=>'Wystąpił błąd',
+            ]);
+        }
+    }
 }
