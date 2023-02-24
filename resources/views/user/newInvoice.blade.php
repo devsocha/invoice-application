@@ -1,7 +1,7 @@
 @extends('user.layout.layout')
 @section('title','Nowa faktura')
 @section('content')
-    <form method="post" action="{{route('companyAddSubmit')}}">
+    <form method="post" action="{{route('newInvoiceAdd')}}">
         @csrf
         <div class="containter-fluid" style="width:40%;margin-top:1%;margin-left:auto;margin-right: auto;">
         <label>
@@ -20,7 +20,8 @@
 
                 if (selectedOption === "opcja1") {
                     buttonContainer.innerHTML = '<div class="containter-fluid" style="width:40%;margin-top:1%;margin-left:auto;margin-right: auto;">' +
-                        '<input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Wybierz firmę"><datalist id="datalistOptions"><option value="San Francisco"></datalist></div>';
+                        '<input class="form-control" list="datalistOptions" name="company" id="exampleDataList" placeholder="Wybierz firmę">' +
+                        '<datalist name="company" id="datalistOptions"><option value="San Francisco"></datalist></div>';
                 } else if (selectedOption === "opcja2") {
                     buttonContainer.innerHTML = '<div class="containter-fluid" style="width:40%;margin-top:1%;margin-left:auto;margin-right: auto;">' +
                         '<label for="name" class="form-label">Nazwa firmy</label>' +
@@ -44,8 +45,8 @@
         </script>
         <div class="containter-fluid" style="width:40%;margin-top:1%;margin-left:auto;margin-right: auto;">
         <label for="exampleDataList" class="form-label">Konto do przelewu</label>
-        <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Wybierz konto">
-        <datalist id="datalistOptions">
+        <input class="form-control" name="account" list="datalistOptions" id="exampleDataList" placeholder="Wybierz konto">
+        <datalist name="account" id="datalistOptions">
             <option value="San Francisco">
             <option value="New York">
             <option value="Seattle">
@@ -54,38 +55,38 @@
         </datalist>
         </div>
         <div class="containter-fluid" style="width:40%;margin-top:1%;margin-left:auto;margin-right: auto;">
-            <label for="netto" class="form-label">Ile czasu do zapłaty</label>
-            <input type="number" name="wartosc"id="netto">
+            <label for="time" class="form-label">Ile czasu do zapłaty</label>
+            <input type="number" name="time" id="time">
         </div>
         <div class="containter-fluid" style="width:40%;margin-top:1%;margin-left:auto;margin-right: auto;">
             <label for="nazwa" class="form-label">Nazwa produktu / usługi</label>
-            <input type="text" class="form-control" name="wartosc"id="nazwa" >
+            <input type="text" class="form-control" name="nameProduct" id="nazwa" >
         </div>
         <div class="containter-fluid" style="width:40%;margin-top:1%;margin-left:auto;margin-right: auto;">
-            <label for="netto" class="form-label">Ile sztuk</label>
-            <input type="number" name="wartosc"id="netto" step="1" value="1">
+            <label for="ile" class="form-label">Ile sztuk</label>
+            <input type="number" name="howMuch" id="ile" step="1" value="1">
         </div>
         <div class="containter-fluid" style="width:40%;margin-top:1%;margin-left:auto;margin-right: auto;">
             <label for="netto" class="form-label">Kwota netto</label>
-            <input type="number" name="wartosc"id="netto" step="0.01" value="12.34">
+            <input type="number" name="netto" id="netto" step="0.01" value="12.34">
         </div>
         <div class="containter-fluid" style="width:40%;margin-top:1%;margin-left:auto;margin-right: auto;">
-            <label for="netto" class="form-label">VAT</label>
-            <select>
-                <option>
+            <label for="vat" class="form-label">VAT</label>
+            <select id="vat" name="vat">
+                <option value="1.23">
                     23%
                 </option>
-                <option>
+                <option value="1.08">
                     8%
                 </option>
-                <option>
+                <option value="1">
                     0%
                 </option>
             </select>
         </div>
         <div class="containter-fluid" style="width:40%;margin-top:1%;margin-left:auto;margin-right: auto;">
             <input type="submit" value="Dodaj" class="btn btn-success" >
-            <a href="{{route('company')}}" class="btn btn-danger">Cofnij</a>
+            <a href="{{route('invoice')}}" class="btn btn-danger">Cofnij</a>
         </div>
     </form>
 @endsection

@@ -42,6 +42,8 @@ Route::post('company-edit-submit',[\App\Http\Controllers\user\companyController:
 ])->name('companyEditSubmit');
 Route::get('new-invoice',[\App\Http\Controllers\user\invoiceController::class,'newInvoice'
 ])->name('newInvoice');
+Route::post('new-invoice-Add',[\App\Http\Controllers\user\invoiceController::class,'newInvoiceAdd'
+])->name('newInvoiceAdd');
 /* Admin */
 Route::get('users-settings',[\App\Http\Controllers\admin\optionsController::class,'usersSettings'
 ])->name('usersSettings');
