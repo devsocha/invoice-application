@@ -65,7 +65,6 @@ class invoiceController extends Controller
                     $company = company::where('nip',$request->nip)->where('firma',$request->name)->first();
                     $idCompany = $company->id;
                 }
-                echo 'dziala'.$request->name;
             }
             $nrInvoice = invoice::where('rok',date('Y'))->count();
             $nrInvoice += 1;
@@ -86,10 +85,12 @@ class invoiceController extends Controller
                 'kwotabrutto'=>$request->netto*$request->vat,
                 'rok'=>date('Y'),
             ]);
-            echo 'dziala';
+            return redirect()->back()->with([
+                'success'=>'Poprawnie wystawiono fakturę',
+            ]);
         }catch(\Exception $e){
             return redirect()->back()->with([
-                'error'=>'Wystąpił błąd'.$e,
+                'error'=>'Wystąpił błąd',
             ]);
         }
     }
