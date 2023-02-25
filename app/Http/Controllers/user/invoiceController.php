@@ -19,7 +19,12 @@ class invoiceController extends Controller
     }
     public function newInvoice(){
         try{
-            return view('user.newInvoice');
+            $companies = company::all();
+            $accounts = ourAccountNumbers::all();
+            return view('user.newInvoice')->with([
+                'companies'=>$companies,
+                'accounts'=>$accounts,
+            ]);
         }catch(\Exception $e){
             return redirect()->back()->with([
                 'error'=>'Wystąpił błąd',

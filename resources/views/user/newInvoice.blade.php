@@ -20,8 +20,8 @@
 
                 if (selectedOption === "opcja1") {
                     buttonContainer.innerHTML = '<div class="containter-fluid" style="width:40%;margin-top:1%;margin-left:auto;margin-right: auto;">' +
-                        '<input class="form-control" list="datalistOptions" name="company" id="exampleDataList" placeholder="Wybierz firmę">' +
-                        '<datalist name="company" id="datalistOptions"><option value="San Francisco"></datalist></div>';
+                        '<input class="form-control" list="datalistOptions2" name="company" id="exampleDataList" placeholder="Wybierz firmę">' +
+                        '<datalist name="company" id="datalistOptions2">@foreach($companies as $company)<option value="{{$company->firma}}">NIP: {{$company->nip}}</option>@endforeach</datalist></div>';
                 } else if (selectedOption === "opcja2") {
                     buttonContainer.innerHTML = '<div class="containter-fluid" style="width:40%;margin-top:1%;margin-left:auto;margin-right: auto;">' +
                         '<label for="name" class="form-label">Nazwa firmy</label>' +
@@ -47,11 +47,7 @@
         <label for="exampleDataList" class="form-label">Konto do przelewu</label>
         <input class="form-control" name="account" list="datalistOptions" id="exampleDataList" placeholder="Wybierz konto">
         <datalist name="account" id="datalistOptions">
-            <option value="San Francisco">
-            <option value="New York">
-            <option value="Seattle">
-            <option value="Los Angeles">
-            <option value="Chicago">
+            @foreach($accounts as $account)<option value="{{$account->nazwa}}">Numer: {{$account->numerkonta}}</option>@endforeach
         </datalist>
         </div>
         <div class="containter-fluid" style="width:40%;margin-top:1%;margin-left:auto;margin-right: auto;">
