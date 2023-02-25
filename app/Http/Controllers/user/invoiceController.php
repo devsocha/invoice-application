@@ -94,4 +94,44 @@ class invoiceController extends Controller
             ]);
         }
     }
+    public function deleteInvoice($id){
+        try{
+            invoice::where('id',$id)->delete();
+            return redirect()->back()->with([
+                'success'=>'Poprawnie usunięto fakturę',
+            ]);
+        }catch(\Exception $e){
+            return redirect()->back()->with([
+                'error'=>'Wystąpił błąd',
+            ]);
+        }
+    }
+    public function paidInvoice($id){
+        try{
+            invoice::where('id',$id)->update([
+                'status'=>'Zapłacono'
+            ]);
+            return redirect()->back()->with([
+                'success'=>'Zapłacono fakturę',
+            ]);
+        }catch(\Exception $e){
+            return redirect()->back()->with([
+                'error'=>'Wystąpił błąd',
+            ]);
+        }
+    }
+    public function createdInvoice($id){
+        try{
+            invoice::where('id',$id)->update([
+                'status'=>'Wystawiona'
+            ]);
+            return redirect()->back()->with([
+                'success'=>'Poprawnie cofnięto status faktury',
+            ]);
+        }catch(\Exception $e){
+            return redirect()->back()->with([
+                'error'=>'Wystąpił błąd',
+            ]);
+        }
+    }
 }

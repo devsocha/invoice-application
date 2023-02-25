@@ -44,6 +44,14 @@ Route::get('new-invoice',[\App\Http\Controllers\user\invoiceController::class,'n
 ])->name('newInvoice');
 Route::post('new-invoice-Add',[\App\Http\Controllers\user\invoiceController::class,'newInvoiceAdd'
 ])->name('newInvoiceAdd');
+Route::get('invoice-remove/{id}',[\App\Http\Controllers\user\invoiceController::class,'deleteInvoice'
+])->name('invoiceRemove');
+Route::get('invoice-paid/{id}',[\App\Http\Controllers\user\invoiceController::class,'paidInvoice'
+])->name('invoicePaid');
+Route::get('invoice-created/{id}',[\App\Http\Controllers\user\invoiceController::class,'createdInvoice'
+])->name('invoiceCreated');
+
+
 /* Admin */
 Route::get('users-settings',[\App\Http\Controllers\admin\optionsController::class,'usersSettings'
 ])->name('usersSettings');
