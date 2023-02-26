@@ -18,7 +18,7 @@ Route::post('/password-confirm/submit',[\App\Http\Controllers\credential\registe
 /* User */
 Route::get('/home',[\App\Http\Controllers\user\homeController::class,'index'
 ])->name('user.home');
-Route::get('pdf',[\App\Http\Controllers\user\pdfController::class,'pdf'
+Route::get('pdf/{id}',[\App\Http\Controllers\user\pdfController::class,'pdf'
 ])->name('pdf.invoice');
 Route::get('account-settings',[\App\Http\Controllers\user\optionsController::class,'accountSettings'
 ])->name('accountSettings');

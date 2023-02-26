@@ -8,23 +8,23 @@
             </div>
             <div  style="width:45%; float:left;margin-top:40px">
                 <div class="text-center" style="border:1px solid black;text-align:center;">Miejsce wystawienia</div>
-                <div class="text-center">Warszawa</div>
+                <div class="text-center">{{$settings->miasto}}</div>
                 <div class="text-center" style="border:1px solid black;text-align:center;">Data wystawienia</div>
-                <div class="text-center">20/03/2023</div>
+                <div class="text-center">@php echo date('d.m.Y',strtotime($faktura->created_at));@endphp</div>
             </div>
         </div><br>
         <div style="clear:both;margin-left:auto; margin-right: auto;">
             <div style="width:43%; float:left;border:2px solid black;margin-right: 10%; margin-top: 40px;padding: 5px;">
-                <b>Przykład Sp. z o.o.</b> <br>
-                ul.Przykładowa 15 <br>
-                05-102 Warszawa <br>
-                NIP: 123456789<br>
+                <b>{{$settings->firma}}</b> <br>
+                {{$settings->adres}} <br>
+                {{$settings->kodpocztowy}} {{$settings->miasto}} <br>
+                NIP: {{$settings->nip}}<br>
             </div>
             <div  style="width:43%; float:left;border:2px solid black; margin-top: 40px;padding: 5px;">
-                <b>Przykład Sp. z o.o.</b> <br>
-                ul.Przykładowa 15 <br>
-                05-102 Warszawa <br>
-                NIP: 123456789 <br>
+                <b>{{$faktura->idFirmy}}</b> <br>
+                {{$faktura->nazwa}} <br>
+                {{$faktura->nazwa}} {{$faktura->nazwa}} <br>
+                NIP: {{$faktura->nazwa}} <br>
             </div>
         </div>
         <div style=" clear: both;">

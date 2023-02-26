@@ -87,9 +87,8 @@ class companyController extends Controller
             ]);
         }catch (\Exception $e) {
             return redirect()->back()->with([
-                'error' => 'Wystąpił błąd, spróbuj ponownie później'.$e,
+                'error' => 'Wystąpił błąd, spróbuj ponownie później',
             ]);
         }
     }
-    //TODO pobieranie danych do wyglądu oraz szablon wraz z całym backendem do tworzenia edycji i usuwania firm
 }
