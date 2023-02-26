@@ -20,7 +20,7 @@ class pdfController extends Controller
 //            return view('pdf.invoice');
         }catch (\Exception $e) {
             return redirect()->back()->with([
-                'error' => 'Wystąpił błąd, spróbuj ponownie później'.$e,
+                'error' => 'Wystąpił błąd, spróbuj ponownie później',
             ]);
         }
 

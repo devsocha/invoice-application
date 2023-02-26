@@ -10,7 +10,7 @@
                 <div class="text-center" style="border:1px solid black;text-align:center;">Miejsce wystawienia</div>
                 <div class="text-center">{{$settings->miasto}}</div>
                 <div class="text-center" style="border:1px solid black;text-align:center;">Data wystawienia</div>
-                <div class="text-center">@php echo date('d.m.Y',strtotime($faktura->created_at));@endphp</div>
+                <div class="text-center">@php echo date('d.m.Y',strtotime($faktura->created_at));/* Błąd pokazuje ale działa poprawnie */@endphp</div>
             </div>
         </div><br>
         <div style="clear:both;margin-left:auto; margin-right: auto;">
@@ -29,16 +29,16 @@
         </div>
         <div style=" clear: both;">
             <div style="text-align: center; padding-top: 5%">
-                <h1>Faktura VAT 12/3/2023 </h1>
+                <h1>{{$faktura->nazwa}} </h1>
             </div>
         </div>
         <div >
             <div >
-                Przelew w ciągu 4 dni na numer konta: <b>1234 5678 9123 45</b>
+                Przelew w ciągu {{$faktura->czas}} dni na numer konta: <b>{{$faktura->idKonta}}</b>
 
             </div>
         </div>
-        <table style="border:1px solid black" >
+        <table style="border:1px solid black; width:100%" >
             <thead style="background-color: black; color:white;">
             <tr class="text-center">
                 <th scope="col">Produkt</th>
@@ -51,12 +51,12 @@
             </thead>
             <tbody>
             <tr class="text-center">
-                <th>Licencja na oprogramowanie do wystawiania faktur</th>
-                <td>1</td>
-                <td>1000 zł</td>
-                <td>1000 zł</td>
-                <td>230 zł</td>
-                <td>1230 zł</td>
+                <th>{{$faktura->product}}</th>
+                <td>{{$faktura->ile}}</td>
+                <td>{{$faktura->kwotanetto}} zł</td>
+                <td>{{$faktura->kwotanetto*$faktura->ile}} zł</td>
+                <td>{{$faktura->kwotanetto*$faktura->ile*$faktura->procentvat-$faktura->kwotanetto*$faktura->ile}} zł</td>
+                <td>{{$faktura->kwotabrutto*$faktura->ile}} zł</td>
             </tr>
             </tbody>
         </table>
