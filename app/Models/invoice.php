@@ -22,4 +22,6 @@ class invoice extends Model
         'kwotabrutto',
         'rok',
     ];
+
+    //todo dodanie relacji dla numeru konta i dla firmy
 }
