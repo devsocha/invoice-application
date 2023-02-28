@@ -12,4 +12,8 @@ class ourAccountNumbers extends Model
         'nazwa',
         'numerkonta',
     ];
+    public function invoice()
+    {
+        return $this->belongsTo(invoice::class,'idKonta');
+    }
 }

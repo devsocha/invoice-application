@@ -21,10 +21,10 @@
                 NIP: {{$settings->nip}}<br>
             </div>
             <div  style="width:43%; float:left;border:2px solid black; margin-top: 40px;padding: 5px;">
-                <b>{{$faktura->idFirmy}}</b> <br>
-                {{$faktura->nazwa}} <br>
-                {{$faktura->nazwa}} {{$faktura->nazwa}} <br>
-                NIP: {{$faktura->nazwa}} <br>
+                <b>{{$faktura->company->firma}}</b> <br>
+                {{$faktura->company->adres}} <br>
+                {{$faktura->company->kodpocztowy}} {{$faktura->company->miasto}} <br>
+                NIP: {{$faktura->company->nip}} <br>
             </div>
         </div>
         <div style=" clear: both;">
@@ -34,7 +34,7 @@
         </div>
         <div >
             <div >
-                Przelew w ciągu {{$faktura->czas}} dni na numer konta: <b>{{$faktura->idKonta}}</b>
+                Przelew w ciągu {{$faktura->czas}} dni na numer konta: <b>{{$faktura->ourAccountNumbers->numerkonta}}</b>
 
             </div>
         </div>

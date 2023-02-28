@@ -24,4 +24,12 @@ class invoice extends Model
     ];
 
     //todo dodanie relacji dla numeru konta i dla firmy
+    public function company()
+    {
+        return $this->hasOne(company::class,'id','idFirmy');
+    }
+    public function ourAccountNumbers()
+    {
+        return $this->hasOne(ourAccountNumbers::class,'id','idKonta');
+    }
 }

@@ -15,4 +15,7 @@ class company extends Model
         'miasto',
         'nip'
     ];
+    public function invoice(){
+        return $this->belongsTo(invoice::class,'idFirmy');
+    }
 }
