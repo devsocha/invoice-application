@@ -51,7 +51,6 @@ Route::get('invoice-paid/{id}',[\App\Http\Controllers\user\invoiceController::cl
 Route::get('invoice-created/{id}',[\App\Http\Controllers\user\invoiceController::class,'createdInvoice'
 ])->name('invoiceCreated');
 
-
 /* Admin */
 Route::get('users-settings',[\App\Http\Controllers\admin\optionsController::class,'usersSettings'
 ])->name('usersSettings');

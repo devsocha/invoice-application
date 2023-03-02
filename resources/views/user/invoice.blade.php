@@ -23,7 +23,7 @@
                 <td>{{$invoice->kwotanetto*$invoice->ile}} zł</td>
                 <td>{{$invoice->status}}</td>
                 <td>
-                    <a href="#" class="btn btn-success">Pobierz</a>
+                    <a href="{{route('pdf.invoice',['id'=>$invoice->id])}}" class="btn btn-success">Pobierz</a>
                     @if($invoice->status=='Zapłacono')<a href="{{route('invoiceCreated',['id'=>$invoice->id])}}" class="btn btn-success">Zmień na wystawiona</a>@else<a href="{{route('invoicePaid',['id'=>$invoice->id])}}" class="btn btn-success">Zmień na zapłacone</a>@endif
                     <a href="#" class="btn btn-secondary">Edytuj</a>
                     <a href="{{route('invoiceRemove',['id'=>$invoice->id])}}" class="btn btn-danger">Usuń</a>

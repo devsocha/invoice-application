@@ -22,7 +22,7 @@ class pdfController extends Controller
             ]);
         }catch (\Exception $e) {
             return redirect()->back()->with([
-                'error' => 'Wystąpił błąd, spróbuj ponownie później'.$e,
+                'error' => 'Wystąpił błąd, spróbuj ponownie później',
             ]);
         }
 
