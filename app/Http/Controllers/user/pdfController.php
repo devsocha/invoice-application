@@ -16,10 +16,10 @@ class pdfController extends Controller
             Pdf::setOption(['dpi' => 96, 'defaultFont' => 'DejaVu Sans']);
             $pdf = Pdf::loadView('pdf.invoice',compact('faktura','settings'));/*->save(public_path().'/generate/pdf/testowy.pdf')*/;
 
-            $pdf ->download('testowy.pdf');
-            return redirect()->back()->with([
-                'success'=>'Poprawnie wygenerowano pdf',
-            ]);
+            return $pdf ->download($faktura->nazwa);
+//            return redirect()->back()->with([
+//                'success'=>'Poprawnie wygenerowano pdf',
+//            ]);
         }catch (\Exception $e) {
             return redirect()->back()->with([
                 'error' => 'Wystąpił błąd, spróbuj ponownie później',
