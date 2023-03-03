@@ -25,7 +25,7 @@
                 <td>
                     <a href="{{route('pdf.invoice',['id'=>$invoice->id])}}" class="btn btn-success">Pobierz</a>
                     @if($invoice->status=='Zapłacono')<a href="{{route('invoiceCreated',['id'=>$invoice->id])}}" class="btn btn-success">Zmień na wystawiona</a>@else<a href="{{route('invoicePaid',['id'=>$invoice->id])}}" class="btn btn-success">Zmień na zapłacone</a>@endif
-                    <a href="#" class="btn btn-secondary">Edytuj</a>
+                    <a href="{{route('invoiceEdit',['id'=>$invoice->id])}}" class="btn btn-secondary">Edytuj</a>
                     <a href="{{route('invoiceRemove',['id'=>$invoice->id])}}" class="btn btn-danger">Usuń</a>
                 </td>
             </tr>

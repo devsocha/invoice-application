@@ -50,6 +50,10 @@ Route::get('invoice-paid/{id}',[\App\Http\Controllers\user\invoiceController::cl
 ])->name('invoicePaid');
 Route::get('invoice-created/{id}',[\App\Http\Controllers\user\invoiceController::class,'createdInvoice'
 ])->name('invoiceCreated');
+Route::get('invoice-edit/{id}',[\App\Http\Controllers\user\invoiceController::class,'editInvoice'
+])->name('invoiceEdit');
+Route::post('invoice-edit-submit',[\App\Http\Controllers\user\invoiceController::class,'editInvoiceSubmit'
+])->name('invoiceEditSubmit');
 
 /* Admin */
 Route::get('users-settings',[\App\Http\Controllers\admin\optionsController::class,'usersSettings'

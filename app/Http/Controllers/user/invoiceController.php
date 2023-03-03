@@ -31,6 +31,48 @@ class invoiceController extends Controller
             ]);
         }
     }
+    public function editInvoice($id){
+        try{
+            $accounts = ourAccountNumbers::all();
+            $invoice = invoice::findOrFail($id);
+            return view('user.editInvoice')->with([
+                'invoice'=>$invoice,
+                'accounts'=>$accounts,
+            ]);
+        }catch(\Exception $e){
+            return redirect()->back()->with([
+                'error'=>'Wystąpił błąd',
+            ]);
+        }
+    }
+    public function editInvoiceSubmit(Request $request){
+        try{
+            $request->validate([
+                'id'=>'required',
+                'account'=>'required',
+                'time'=>'required',
+                'nameProduct'=>'required',
+                'howMuch'=>'required',
+                'netto'=>'required',
+            ]);
+            $account = ourAccountNumbers::where('nazwa',$request->account)->first();
+            $idAccount = $account->id;
+            $invoice = invoice::where('id',$request->id)->first();
+            invoice::where('id',$request->id)->update([
+                'idKonta'=>$idAccount,
+                'czas'=>$request->time,
+                'product'=>$request->nameProduct,
+                'ile'=>$request->howMuch,
+                'kwotanetto'=>$request->netto,
+                'kwotabrutto'=>$request->netto*$invoice->procentvat,
+            ]);
+            echo 'dziala';
+        }catch(\Exception $e){
+            return redirect()->back()->with([
+                'error'=>'Wystąpił błąd'.$e,
+            ]);
+        }
+    }
     public function newInvoiceAdd(Request $request){
         try{
             $idCompany =1;
