@@ -13,9 +13,6 @@
                     <a class="nav-link active" aria-current="page" href="{{route('invoice')}}">Faktury</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="{{route('reports')}}">Raporty</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="{{route('company')}}">Firmy</a>
                 </li>
                 <li class="nav-item dropdown">

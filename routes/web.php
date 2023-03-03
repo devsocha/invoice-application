@@ -28,10 +28,6 @@ Route::get('invoice',[\App\Http\Controllers\user\invoiceController::class,'index
 ])->name('invoice');
 Route::get('company',[\App\Http\Controllers\user\companyController::class,'index'
 ])->name('company');
-Route::get('reports',[\App\Http\Controllers\user\reportsController::class,'index'
-])->name('reports');
-Route::get('company-delete/{id}',[\App\Http\Controllers\user\companyController::class,'companyDelete'
-])->name('companyDelete');
 Route::get('company-add',[\App\Http\Controllers\user\companyController::class,'companyAdd'
 ])->name('companyAdd');
 Route::post('company-add-submit',[\App\Http\Controllers\user\companyController::class,'companyAddSubmit'
