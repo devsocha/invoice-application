@@ -3,9 +3,9 @@
 use Illuminate\Support\Facades\Route;
 
 /* Logowanie */
-Route::get('/', [\App\Http\Controllers\credential\loginController::class,'index'])->name('loginpage');
+Route::get('/', [\App\Http\Controllers\credential\loginController::class,'index'])->name('loginpage')->middleware('islogon');
 Route::post('/login-submit',[\App\Http\Controllers\credential\loginController::class,'login'])->name('login.submit');
-Route::get('logout',[\App\Http\Controllers\credential\loginController::class,'logout'])->name('logout');
+Route::get('logout',[\App\Http\Controllers\credential\loginController::class,'logout'])->name('logout')->middleware('auth');
 /* Reset hasła */
 Route::get('forget-password/',[\App\Http\Controllers\credential\forgetPasswordController::class,'index'])->name('forget.password');
 Route::post('forget-password/submit',[\App\Http\Controllers\credential\forgetPasswordController::class,'forgetPassword'])->name('forget.password.submit');
@@ -17,39 +17,39 @@ Route::post('/password-confirm/submit',[\App\Http\Controllers\credential\registe
 ])->name('passwordConfirm.submit');
 /* User */
 Route::get('/home',[\App\Http\Controllers\user\homeController::class,'index'
-])->name('user.home');
+])->name('user.home')->middleware('auth');
 Route::get('pdf/{id}',[\App\Http\Controllers\user\pdfController::class,'pdf'
-])->name('pdf.invoice');
+])->name('pdf.invoice')->middleware('auth');
 Route::get('account-settings',[\App\Http\Controllers\user\optionsController::class,'accountSettings'
-])->name('accountSettings');
+])->name('accountSettings')->middleware('auth');
 Route::post('account-settings/submit',[\App\Http\Controllers\user\optionsController::class,'accountSettingsUpdate'
-])->name('accountSettings.submit');
+])->name('accountSettings.submit')->middleware('auth');
 Route::get('invoice',[\App\Http\Controllers\user\invoiceController::class,'index'
-])->name('invoice');
+])->name('invoice')->middleware('auth');
 Route::get('company',[\App\Http\Controllers\user\companyController::class,'index'
-])->name('company');
+])->name('company')->middleware('auth');
 Route::get('company-add',[\App\Http\Controllers\user\companyController::class,'companyAdd'
-])->name('companyAdd');
+])->name('companyAdd')->middleware('auth');
 Route::post('company-add-submit',[\App\Http\Controllers\user\companyController::class,'companyAddSubmit'
-])->name('companyAddSubmit');
+])->name('companyAddSubmit')->middleware('auth');
 Route::get('company-edit/{id}',[\App\Http\Controllers\user\companyController::class,'companyEdit'
-])->name('companyEdit');
+])->name('companyEdit')->middleware('auth');
 Route::post('company-edit-submit',[\App\Http\Controllers\user\companyController::class,'companyEditSubmit'
-])->name('companyEditSubmit');
+])->name('companyEditSubmit')->middleware('auth');
 Route::get('new-invoice',[\App\Http\Controllers\user\invoiceController::class,'newInvoice'
-])->name('newInvoice');
+])->name('newInvoice')->middleware('auth');
 Route::post('new-invoice-Add',[\App\Http\Controllers\user\invoiceController::class,'newInvoiceAdd'
-])->name('newInvoiceAdd');
+])->name('newInvoiceAdd')->middleware('auth');
 Route::get('invoice-remove/{id}',[\App\Http\Controllers\user\invoiceController::class,'deleteInvoice'
-])->name('invoiceRemove');
+])->name('invoiceRemove')->middleware('auth');
 Route::get('invoice-paid/{id}',[\App\Http\Controllers\user\invoiceController::class,'paidInvoice'
-])->name('invoicePaid');
+])->name('invoicePaid')->middleware('auth');
 Route::get('invoice-created/{id}',[\App\Http\Controllers\user\invoiceController::class,'createdInvoice'
-])->name('invoiceCreated');
+])->name('invoiceCreated')->middleware('auth');
 Route::get('invoice-edit/{id}',[\App\Http\Controllers\user\invoiceController::class,'editInvoice'
-])->name('invoiceEdit');
+])->name('invoiceEdit')->middleware('auth');
 Route::post('invoice-edit-submit',[\App\Http\Controllers\user\invoiceController::class,'editInvoiceSubmit'
-])->name('invoiceEditSubmit');
+])->name('invoiceEditSubmit')->middleware('auth');
 
 /* Admin */
 Route::get('users-settings',[\App\Http\Controllers\admin\optionsController::class,'usersSettings'
