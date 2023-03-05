@@ -4,7 +4,7 @@
     <div class="container-fluid">
         <div >
             <div style="margin-top:40px;width:45%; margin-right: 10%; float:left;">
-                <h1>LOGO FIRMY</h1>
+                <img src=""/>
             </div>
             <div  style="width:45%; float:left;margin-top:40px">
                 <div class="text-center" style="border:1px solid black;text-align:center;">Miejsce wystawienia</div>

@@ -3,6 +3,7 @@
 @section('content')
     <form class="row g-3 m-1" method="post"action="{{route('numberAccountSettingsSubmit')}}">
         @csrf
+
         <div class="col-auto">
             <label for="nazwa" class="visually-hidden">Nazwa</label>
             <input name="name"type="text" class="form-control" id="nazwa" placeholder="Wpisz nazwe">
