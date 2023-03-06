@@ -1,12 +1,12 @@
 @extends('user.layout.layout')
 @section('title','Ustawienia konta')
 @section('content')
-    <form method="post" action="{{route('companySettingsSubmit')}}">
+    <form method="post" action="{{route('companySettingsSubmit')}}" enctype="multipart/form-data">
         @csrf
-        <div class="containter-fluid" style="width:40%;margin-top:5%;margin-left:auto;margin-right: auto;">
+        <div class="containter-fluid" style="width:40%;margin-top:5%;margin-left:auto;margin-right: auto;" >
             <img src=""/>
             <label for="logo" class="visually-hidden">Logo</label>
-            <input name="logo"type="file" class="form-control" id="logo" placeholder="Wpisz nazwe">
+            <input name="logo"type="file" class="form-control" id="logo">
         </div>
         <input type="hidden" name="id" value="">
         <div class="containter-fluid" style="width:40%;margin-top:1%;margin-left:auto;margin-right: auto;">
