@@ -4,7 +4,7 @@
     <form method="post" action="{{route('companySettingsSubmit')}}" enctype="multipart/form-data">
         @csrf
         <div class="containter-fluid" style="width:40%;margin-top:5%;margin-left:auto;margin-right: auto;" >
-            <img src=""/>
+            <img style="max-width: 300px;min-width: 250px;max-height: 700px;" src="@if($company){{asset('uploads/images/'.$company->logo) }} @endif"/>
             <label for="logo" class="visually-hidden">Logo</label>
             <input name="logo"type="file" class="form-control" id="logo">
         </div>

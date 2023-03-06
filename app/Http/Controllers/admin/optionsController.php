@@ -7,6 +7,7 @@ use App\Models\ourAccountNumbers;
 use App\Models\ourCompanySettings;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class optionsController extends Controller
 {
@@ -93,6 +94,7 @@ class optionsController extends Controller
                 'city'=>'required',
                 'nip'=>'required',
             ]);
+
             if(ourCompanySettings::exists()){
                 ourCompanySettings::where('id',1)->update([
                     'firma'=>$request->company,
@@ -110,13 +112,29 @@ class optionsController extends Controller
                     'nip'=>$request->nip,
                 ]);
             }
+            if($request->hasFile('logo')){
+                $request->validate([
+                    'logo'=>'required|mimes:jpeg,jpg,png|max:2048',
+                ]);
+                $settings = ourCompanySettings::where('logo','like','%'.'logo'.'%')->first();
+                if($settings){
+                    unlink(public_path('/uploads/images/').$settings->logo);
+                }
+                $ext = $request->file('logo')->extension();
+                $fullNameLogo = 'logo'.'.'.$ext;
+                $request->file('logo')->move(public_path('/uploads/images/'),$fullNameLogo);
+                ourCompanySettings::where('id',1)->update([
+                    'logo'=>$fullNameLogo,
+                ]);
+
+            }
 
             return redirect()->back()->with([
                 'success' => 'Poprawnie zmieniono dane firmowe',
             ]);
         }catch (\Exception $e) {
             return redirect()->back()->with([
-                'error' => 'Wystąpił błąd, spróbuj ponownie później',
+                'error' => 'Wystąpił błąd, spróbuj ponownie później'.$e,
             ]);
         }
     }
